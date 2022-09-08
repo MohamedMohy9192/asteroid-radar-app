@@ -9,6 +9,7 @@ import com.udacity.asteroidradar.AsteroidApplication
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.adapter.AsteroidListAdapter
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
+import com.udacity.asteroidradar.repository.AsteroidsFilter
 
 class MainFragment : Fragment() {
 
@@ -55,6 +56,13 @@ class MainFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        viewModel.updateAsteroidsFilter(
+            when (item.itemId) {
+                R.id.show_today_menu -> AsteroidsFilter.SHOW_TODAY_ASTEROIDS
+                R.id.show_week_menu -> AsteroidsFilter.SHOW_WEEK_ASTEROIDS
+                else -> AsteroidsFilter.SHOW_SAVED_ASTEROIDS
+            }
+        )
         return true
     }
 }
