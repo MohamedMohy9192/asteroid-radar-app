@@ -8,13 +8,15 @@ import com.udacity.asteroidradar.data.AsteroidDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
-import java.util.ArrayList
 
 class AsteroidRepository(
     private val asteroidDao: AsteroidDao
 ) {
 
     val asteroids: LiveData<List<Asteroid>> = asteroidDao.getAsteroids()
+
+
+    suspend fun getPictureOfDay() = NasaApi.nasaService.getImageOfTheDay()
 
     suspend fun refreshAsteroids() {
         val response = NasaApi.nasaService.getNextSevenDaysAsteroids()
