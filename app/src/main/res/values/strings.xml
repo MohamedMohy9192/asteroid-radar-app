@@ -21,4 +21,6 @@
     <string name="nasa_picture_of_day_content_description_format">NASA\'s picture of day: %s</string>
     <string name="button_to_open_a_dialog_providing_an_explanation_about_astronomical_unit">Button to open a dialog providing an explanation about astronomical unit</string>
     <string name="an_image_represents_if_the_asteroid_is_hazards_or_not">An image represents if the asteroid is hazards or not</string>
+    <string name="potentially_hazardous_asteroid_status_icon">Potentially hazardous asteroid status icon</string>
+    <string name="not_hazardous_asteroid_status_icon">Not hazardous asteroid status icon</string>
 </resources>
