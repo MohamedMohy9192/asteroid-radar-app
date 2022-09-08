@@ -24,6 +24,7 @@ class AsteroidListAdapter(private val asteroidClickListener: OnAsteroidClickList
 
     override fun onBindViewHolder(holder: AsteroidViewHolder, position: Int) {
         val asteroid = getItem(position)
+        holder.itemView.setOnClickListener { asteroidClickListener.onAsteroidClick(asteroid) }
         holder.bind(asteroid)
     }
 

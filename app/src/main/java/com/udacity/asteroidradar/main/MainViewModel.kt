@@ -5,28 +5,31 @@ import com.udacity.asteroidradar.Asteroid
 import com.udacity.asteroidradar.repository.AsteroidRepository
 import kotlinx.coroutines.launch
 
-enum class AsteroidStatus { LOADING, ERROR, DONE }
-
 class MainViewModel(private val asteroidRepository: AsteroidRepository) : ViewModel() {
 
-    private val _status = MutableLiveData<AsteroidStatus>()
-    val status: LiveData<AsteroidStatus> get() = _status
-
     val asteroids: LiveData<List<Asteroid>> = asteroidRepository.asteroids
+
+    private val _navigateToSelectedAsteroid = MutableLiveData<Asteroid?>()
+    val navigateToSelectedAsteroid: LiveData<Asteroid?> get() = _navigateToSelectedAsteroid
 
     init {
         getAsteroids()
     }
 
     private fun getAsteroids() = viewModelScope.launch {
-
-        _status.value = AsteroidStatus.LOADING
         try {
             asteroidRepository.refreshAsteroids()
-            _status.value = AsteroidStatus.DONE
         } catch (e: Exception) {
-            _status.value = AsteroidStatus.ERROR
+
         }
+    }
+
+    fun displayAsteroidDetails(asteroid: Asteroid) {
+        _navigateToSelectedAsteroid.value = asteroid
+    }
+
+    fun displayAsteroidDetailsComplete() {
+        _navigateToSelectedAsteroid.value = null
     }
 }
 
