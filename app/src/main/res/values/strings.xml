@@ -19,4 +19,6 @@
     <string name="not_hazardous_asteroid_image">Not hazardous asteroid image</string>
     <string name="this_is_nasa_s_picture_of_day_showing_nothing_yet">This is NASA\'s picture of day, showing nothing yet</string>
     <string name="nasa_picture_of_day_content_description_format">NASA\'s picture of day: %s</string>
+    <string name="button_to_open_a_dialog_providing_an_explanation_about_astronomical_unit">Button to open a dialog providing an explanation about astronomical unit</string>
+    <string name="an_image_represents_if_the_asteroid_is_hazards_or_not">An image represents if the asteroid is hazards or not</string>
 </resources>
